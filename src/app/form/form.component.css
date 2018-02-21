@@ -6,3 +6,10 @@
   .example-container > * {
     width: 100%;
   }
+
+  .container {
+    display: flex; /* or inline-flex */
+  }
+  .card{
+    margin-top: -27px;
+  }

@@ -1,3 +1,45 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <mat-card style=" width: 576px; height: 266px;">
+            <mat-form-field>
+                <input matInput placeholder="Name">
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="Mobile">
+                </mat-form-field> 
+                <mat-form-field>
+                    <input matInput placeholder="Email">
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input matInput placeholder="Education">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input matInput placeholder="City">
+                      </mat-form-field>
+                      <mat-form-field>
+                          <input matInput placeholder="State">
+                        </mat-form-field>
+                        <mat-radio-group>
+                            <mat-radio-button value="1">Male</mat-radio-button>
+                            <mat-radio-button value="2">Female</mat-radio-button>
+                          </mat-radio-group>
+                          <br>
+                          <br>
+                          <button class="pull-right"  mat-raised-button (click)="openDialog()" color="accent">Submit</button>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-card  style=" width: 576px; height: 266px;">
+            <mat-toolbar style="margin-top: -27px;" color="accent">My App</mat-toolbar>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list>
+  
+    
+    
 <div class="example-container">
   <mat-form-field>
     <input matInput placeholder="Input">

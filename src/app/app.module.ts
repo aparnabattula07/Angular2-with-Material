@@ -22,6 +22,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+// import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -31,6 +32,8 @@ import { TableComponent } from './table/table.component';
 import{MaterialUiModule}from'./material-ui.module';
 import { FormComponent } from './form/form.component';
 import { CardGridComponent } from './card-grid/card-grid.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SampleComponent } from './sample/sample.component';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { CardGridComponent } from './card-grid/card-grid.component';
     AppComponent,
     TableComponent,
     FormComponent,
-    CardGridComponent
+    CardGridComponent,
+    DashboardComponent,
+    SampleComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +69,7 @@ import { CardGridComponent } from './card-grid/card-grid.component';
     MatGridListModule,
     MatStepperModule,
     MatSlideToggleModule
+    // NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
