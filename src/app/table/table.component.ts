@@ -1,16 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
+import {DatalistService} from '../datalist.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+ tableData;
+  constructor(private http: HttpClient){
   }
+  ngOnInit():void {
+    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(data => this.tableData = data);
+  
+  }
+ 
 displayedColumns = ['position', 'name', 'weight', 'symbol'];
 dataSource = new MatTableDataSource(ELEMENT_DATA);
 

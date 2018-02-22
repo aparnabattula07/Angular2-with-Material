@@ -22,6 +22,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { HttpClientModule } from '@angular/common/http';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -34,6 +35,10 @@ import { FormComponent } from './form/form.component';
 import { CardGridComponent } from './card-grid/card-grid.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SampleComponent } from './sample/sample.component';
+
+
+// services
+import{DatalistService} from './datalist.service'
 
 
 @NgModule({
@@ -68,10 +73,11 @@ import { SampleComponent } from './sample/sample.component';
     MatExpansionModule,
     MatGridListModule,
     MatStepperModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule
     // NgbModule
   ],
-  providers: [],
+  providers: [DatalistService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

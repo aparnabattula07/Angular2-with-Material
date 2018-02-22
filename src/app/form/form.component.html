@@ -19,10 +19,20 @@
                       <mat-form-field>
                           <input matInput placeholder="State">
                         </mat-form-field>
-                        <mat-radio-group>
+                        <!-- <mat-radio-group>
                             <mat-radio-button value="1">Male</mat-radio-button>
                             <mat-radio-button value="2">Female</mat-radio-button>
-                          </mat-radio-group>
+                          </mat-radio-group> -->
+                          <mat-form-field>
+                            <mat-select [(ngModel)]="foodtype" placeholder="Favorite food">
+                              <mat-option *ngFor="let food of foods" [value]="food">
+                                {{ food.viewValue }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                            <mat-form-field>
+                              <input matInput [value]="foodtype.viewValue"  placeholder="Bind">
+                            </mat-form-field>
                           <br>
                           <br>
                           <button class="pull-right"  mat-raised-button (click)="openDialog()" color="accent">Submit</button>
@@ -59,13 +69,13 @@
     <mat-radio-button value="2">Option 2</mat-radio-button>
   </mat-radio-group>
   <mat-slide-toggle>Slide me!</mat-slide-toggle>
-  <mat-form-field>
+  <!-- <mat-form-field>
     <mat-select placeholder="Favorite food">
       <mat-option *ngFor="let food of foods" [value]="food.value">
         {{ food.viewValue }}
       </mat-option>
     </mat-select>
-  </mat-form-field>
+  </mat-form-field> -->
   <mat-accordion>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
