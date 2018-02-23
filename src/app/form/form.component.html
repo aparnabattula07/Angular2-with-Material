@@ -49,17 +49,68 @@
               <td>{{fromdata.name}}</td>
               <td>{{fromdata.Email}}</td>
               <td>{{fromdata.phone}}</td>
-              <button mat-raised-button color="primary" (click)="openDialog(fromdata)">Pick one</button>
+              <td><button mat-raised-button color="primary" (click)="openDialog(fromdata)">Pick one</button></td>
             </tr>
           </tbody>
         </table>
-     
-            
-         
-          
-       
       </mat-card>
     </mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
+  <!-- <mat-grid-tile>
+    
+  </mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile> -->
 </mat-grid-list>
+<mat-card class="cardstyle">
+  <h1>Form Validation</h1>
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="example-form">
+        <mat-form-field class="example-full-width">
+            <input #emailIdSpy matInput name="emailId" placeholder="Email" type="email" required [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$" #emailId="ngModel">
+            <mat-error *ngIf="!emailId.valid && emailId.errors.required">
+                Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="!emailId.valid && emailId.errors.pattern">
+                Entered Email Did not match the pattern of type user@abc.com
+            </mat-error>
+            <br /> 
+        </mat-form-field>
+       
+        <br />
+        <mat-form-field class="example-full-width">
+            <input #passwordSpy matInput name="password" placeholder="Password" type="password" required [(ngModel)]="password" #passwordRef="ngModel" minlength="8" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+            <mat-hint *ngIf="!passwordRef.valid || !passwordRef.touched " align="start">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</mat-hint>
+            <mat-error *ngIf="!passwordRef.valid && passwordRef.errors.required">
+                Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="!passwordRef.valid && passwordRef.errors.pattern">
+                Must contain at least one number and one uppercase and lowercase letter.
+            </mat-error>
+            <mat-error *ngIf="!passwordRef.valid && passwordRef.errors.minlength">
+                Minimum 8 Characters required
+            </mat-error>
+        </mat-form-field>
+        <br /> 
+        <br />
+        <br/>
+        <mat-form-field class="example-full-width">
+            <input matInput name="confirmPassword" placeholder="Confirm Password" type="password" required [(ngModel)]="confirmPassword" #confirmPasswordRef="ngModel" minlength="8" pattern="(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+            <mat-hint *ngIf="!confirmPasswordRef.valid || !confirmPasswordRef.touched " align="start">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</mat-hint>
+            <mat-error *ngIf="!confirmPasswordRef.valid && confirmPasswordRef.errors.required">
+                Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="!confirmPasswordRef.valid && confirmPasswordRef.errors.pattern">
+                Must contain at least one number and one uppercase and lowercase letter.
+            </mat-error>
+            <mat-error *ngIf="!confirmPasswordRef.valid && confirmPasswordRef.errors.minlength">
+                Minimum 8 Characters required
+            </mat-error>
+            <mat-error *ngIf="( confirmPasswordRef.dirty && (confirmPasswordRef.value != passwordRef.value) )">
+                Password Entered & Confirm Password do not match
+            </mat-error>
+        </mat-form-field>
+        <br/>
+        <br/>
+        <br/>
+        <button [disabled]="!registerForm.valid" mat-raised-button type="submit">Submit</button>
+    </form>
+
+</mat-card>

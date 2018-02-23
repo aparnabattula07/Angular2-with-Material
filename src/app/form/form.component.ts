@@ -1,6 +1,10 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {TableComponent} from '../table/table.component'
+import {TableComponent} from '../table/table.component';
+import {FormControl, Validators} from '@angular/forms';
+const EMAIL_REGEX1 = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
+const EMAIL_REGEX = "[a-z]*";
+
 // import { Router } from '@angular/router';
 @Component({
   selector: 'app-form',
@@ -13,6 +17,14 @@ export class FormComponent implements OnInit{
   animal: string;
   name: string;
   
+  title = 'app';
+  email : string;
+  password : string;
+  
+    public onSubmit(){
+      console.log("OnSubmit: ");
+    }
+
   formData=
     [{id:"1",name:"Aparna",Email:"Aparna@caratred.com",phone:"876543433"},
     {id:"2",name:"hari",Email:"hari@caratred.com",phone:"876543433"},
