@@ -14,7 +14,7 @@ import{SampleComponent} from './sample/sample.component';
 
 const routes: Routes =[
   // { path: '', redirectTo: '/table', pathMatch: 'full' },
-    { path: 'form/:id',component: FormComponent },
+    { path: 'form',component: FormComponent },
     { path: 'table',component: TableComponent },
     { path: 'card',component: CardGridComponent },
     { path: 'dashboard',component: DashboardComponent },

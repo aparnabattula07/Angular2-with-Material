@@ -10,10 +10,16 @@ import { HttpClient } from '@angular/common/http';
 export class TableComponent implements OnInit {
  tableData;
  byIdData;
+ testing:String="my Name Aparna"
   constructor(private DatalistService: DatalistService){
   }
   ngOnInit() {
+    this.get();
+  }
+  
+  get(){
     this.DatalistService.getData().subscribe(data=>this.tableData=data)
+    
   }
   getDataById(id){
 let Id=id;

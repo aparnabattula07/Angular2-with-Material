@@ -1,0 +1,28 @@
+<form >
+    <mat-form-field class="example-full-width">
+      <input matInput name="name" placeholder="Name" [ngModel]='data.name'   >
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput name="password" placeholder="Email" [ngModel]='data.Email'  >
+    </mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+<input matInput name="repassword" placeholder="Mobile"  [ngModel]='data.phone'  >
+</mat-form-field>
+<br>
+<!-- <mat-form-field>
+<mat-select placeholder="Favorite food" [(ngModel)]="selectedvalue" name="food">
+  <mat-option *ngFor="let food of foods" [value]="food.viewValue">
+    {{ food.viewValue }}
+  </mat-option>
+</mat-select>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+<input matInput name="appending value" placeholder="appending value" value="{{selectedvalue}}" >
+</mat-form-field>
+<br> -->
+<button mat-raised-button color="accent" class="pull-right" (click)="onNoClick()">Cancel</button> 
+<button mat-raised-button color="primary" class="pull-right" (click)="formSubmit()">submit</button>  
+
+</form>

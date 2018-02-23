@@ -1,112 +1,65 @@
 <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile>
-        <mat-card style=" width: 576px; height: 266px;">
-            <mat-form-field>
-                <input matInput placeholder="Name">
-              </mat-form-field>
-              <mat-form-field>
-                  <input matInput placeholder="Mobile">
-                </mat-form-field> 
-                <mat-form-field>
-                    <input matInput placeholder="Email">
-                  </mat-form-field>
-                  <mat-form-field>
-                      <input matInput placeholder="Education">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input matInput placeholder="City">
-                      </mat-form-field>
-                      <mat-form-field>
-                          <input matInput placeholder="State">
-                        </mat-form-field>
-                        <!-- <mat-radio-group>
-                            <mat-radio-button value="1">Male</mat-radio-button>
-                            <mat-radio-button value="2">Female</mat-radio-button>
-                          </mat-radio-group> -->
-                          <mat-form-field>
-                            <mat-select [(ngModel)]="foodtype" placeholder="Favorite food">
-                              <mat-option *ngFor="let food of foods" [value]="food">
-                                {{ food.viewValue }}
-                              </mat-option>
-                            </mat-select>
-                          </mat-form-field>
-                            <mat-form-field>
-                              <input matInput [value]="foodtype.viewValue"  placeholder="Bind">
-                            </mat-form-field>
-                          <br>
-                          <br>
-                          <button class="pull-right"  mat-raised-button (click)="openDialog()" color="accent">Submit</button>
+  <mat-grid-tile>
+    <mat-card class="cardstyle">
+      <h5>Form</h5>
+      <form >
+      <mat-form-field class="example-full-width">
+        <input matInput name="name" placeholder="Name"  [(ngModel)]="form.name" >
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <input matInput name="password" placeholder="Password" [(ngModel)]="form.password"  >
+      </mat-form-field>
+<br>
+<mat-form-field class="example-full-width">
+  <input matInput name="repassword" placeholder="Recet Password" [(ngModel)]="form.repassword"  >
+</mat-form-field>
+<br>
+<mat-form-field>
+  <mat-select placeholder="Favorite food" [(ngModel)]="selectedvalue" name="food">
+    <mat-option *ngFor="let food of foods" [value]="food.viewValue">
+      {{ food.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput name="appending value" placeholder="appending value" value="{{selectedvalue}}" >
+</mat-form-field>
+
+
+<br>
+<button mat-raised-button color="primary" class=" pull-right" (click)="formSubmit()">Primary</button>  
+</form>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card class="cardstyle">
+      <h5>Dialog</h5>
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let fromdata of formData">
+              <td>{{fromdata.name}}</td>
+              <td>{{fromdata.Email}}</td>
+              <td>{{fromdata.phone}}</td>
+              <button mat-raised-button color="primary" (click)="openDialog(fromdata)">Pick one</button>
+            </tr>
+          </tbody>
+        </table>
+     
+            
+         
+          
+       
       </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card  style=" width: 576px; height: 266px;">
-            <mat-toolbar style="margin-top: -27px;" color="accent">My App</mat-toolbar>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-          </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
-    <mat-grid-tile>4</mat-grid-tile>
-  </mat-grid-list>
-  
-    
-    
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-radio-group>
-    <mat-radio-button value="1">Option 1</mat-radio-button>
-    <mat-radio-button value="2">Option 2</mat-radio-button>
-  </mat-radio-group>
-  <mat-slide-toggle>Slide me!</mat-slide-toggle>
-  <!-- <mat-form-field>
-    <mat-select placeholder="Favorite food">
-      <mat-option *ngFor="let food of foods" [value]="food.value">
-        {{ food.viewValue }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field> -->
-  <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-    </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-  <mat-slider></mat-slider>
-</div>
+  <mat-grid-tile>3</mat-grid-tile>
+  <mat-grid-tile>4</mat-grid-tile>
+</mat-grid-list>

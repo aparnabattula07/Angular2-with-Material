@@ -23,6 +23,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -31,7 +32,7 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import{MaterialUiModule}from'./material-ui.module';
-import { FormComponent } from './form/form.component';
+import { FormComponent,DialogOverviewExampleDialog } from './form/form.component';
 import { CardGridComponent } from './card-grid/card-grid.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SampleComponent } from './sample/sample.component';
@@ -48,7 +49,8 @@ import{DatalistService} from './datalist.service'
     FormComponent,
     CardGridComponent,
     DashboardComponent,
-    SampleComponent
+    SampleComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -74,11 +76,13 @@ import{DatalistService} from './datalist.service'
     MatGridListModule,
     MatStepperModule,
     MatSlideToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
     // NgbModule
   ],
   providers: [DatalistService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[DialogOverviewExampleDialog]
 })
 export class AppModule {
 
