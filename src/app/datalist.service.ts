@@ -21,7 +21,7 @@ return res;
 
    getDataById(id) {
      console.log(id)
-    let url='https://jsonplaceholder.typicode.com/posts/'+id;
+    let url='https://jsonplaceholder.typicode.com/posts'+'/'+id;
      return this.http.get(url)
      .map((res:Response)=>{
        return res;

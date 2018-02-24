@@ -18,7 +18,7 @@ const routes: Routes =[
     { path: 'table',component: TableComponent },
     { path: 'card',component: CardGridComponent },
     { path: 'dashboard',component: DashboardComponent },
-    {path:'sample',component:SampleComponent}
+    {path:'sample/:id',component:SampleComponent}
 
 ];
 

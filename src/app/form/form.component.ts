@@ -17,7 +17,7 @@ export class FormComponent implements OnInit{
     [{id:"1",name:"Aparna",Email:"Aparna@caratred.com",phone:"876543433"},
     {id:"2",name:"hari",Email:"hari@caratred.com",phone:"876543433"},
     {id:"3",name:"kranthi",Email:"krathi@caratred.com",phone:"876543433"}]
-  table=new TableComponent();
+  // table=new TableComponent();
 
   selectedName:String="I AM Aparna";
   foods = [
@@ -31,7 +31,7 @@ export class FormComponent implements OnInit{
 
   constructor(public dialog: MatDialog) {}
   ngOnInit(){
-    console.log("data",this.table.testing)
+    // console.log("data",this.table.testing)
   }
  formSubmit(){
    console.log(this.form,"form details");

@@ -1,6 +1,6 @@
-<mat-card *ngIf='byIdData'>Simple card
+<!-- <mat-card *ngIf='byIdData'>Simple card
   <p>{{byIdData.body}}</p>
-</mat-card>
+</mat-card> -->
 
 <div class="container">
   <h2>Basic Table</h2>         
@@ -18,7 +18,9 @@
         <td>{{data.userId}}</td>
         <td>{{data.title}}</td>
         <td>{{data.body}}</td>
-        <td><button mat-raised-button color="primary" (click)='getDataById(data.id)' >Primary</button></td>
+        <td>
+          <button mat-raised-button color="primary" (click)='getDataById(data.id)' routerLink="/sample/{{data.id}}">
+            Primary</button></td>
       </tr>
     </tbody>
   </table>
