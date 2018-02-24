@@ -8,12 +8,12 @@ import {FormComponent} from './form/form.component';
 import {TableComponent} from './table/table.component';
 import {CardGridComponent} from './card-grid/card-grid.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import{SampleComponent} from './sample/sample.component'
+import{SampleComponent} from './sample/sample.component';
 
 
 
 const routes: Routes =[
-  { path: '', redirectTo: '/table', pathMatch: 'full' },
+  // { path: '', redirectTo: '/table', pathMatch: 'full' },
     { path: 'form/:id',component: FormComponent },
     { path: 'table',component: TableComponent },
     { path: 'card',component: CardGridComponent },

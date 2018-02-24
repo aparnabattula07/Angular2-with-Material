@@ -9,11 +9,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TableComponent implements OnInit {
  tableData;
-  constructor(private http: HttpClient){
+ byIdData;
+  constructor(private DatalistService: DatalistService){
   }
-  ngOnInit():void {
-    this.http.get('https://jsonplaceholder.typicode.com/posts').subscribe(data => this.tableData = data);
-  
+  ngOnInit() {
+    this.DatalistService.getData().subscribe(data=>this.tableData=data)
+  }
+  getDataById(id){
+let Id=id;
+this.DatalistService.getDataById(Id).subscribe(data=>this.byIdData=data)
+// console.log(this.byIdData)
   }
  
 displayedColumns = ['position', 'name', 'weight', 'symbol'];
