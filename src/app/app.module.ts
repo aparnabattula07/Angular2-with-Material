@@ -24,6 +24,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -77,7 +78,8 @@ import{DatalistService} from './datalist.service'
     MatStepperModule,
     MatSlideToggleModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatPaginatorModule
     // NgbModule
   ],
   providers: [DatalistService],

@@ -2,7 +2,47 @@
   <p>{{byIdData.body}}</p>
 </mat-card> -->
 
-<div class="container">
+<div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" matSort>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="userId">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.userId}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.body}} </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)='getDataById(element.id)' routerLink="/sample/{{element.id}}">
+          Primary</button> </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 20]"
+                   [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
+
+
+<!-- <div class="container">
   <h2>Basic Table</h2>         
   <table class="table table-hover">
     <thead>
@@ -24,4 +64,4 @@
       </tr>
     </tbody>
   </table>
-</div>
+</div> -->
