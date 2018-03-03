@@ -3,6 +3,8 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import {DatalistService} from '../datalist.service';
 import { HttpClient } from '@angular/common/http';
 import {MatPaginator, MatTableDataSource,MatSort} from '@angular/material';
+import {SelectionModel} from '@angular/cdk/collections';
+import{TestClass} from './test-class'
 
 @Component({
   selector: 'app-table',
@@ -13,18 +15,40 @@ export class TableComponent implements OnInit {
  tableData;
  byIdData;
  testing:String="my Name Aparna";
- displayedColumns = ['userId', 'title', 'weight','symbol'];
+ displayedColumns = ['select','userId', 'title', 'weight','symbol'];
   dataSource;
-
+  selection = new SelectionModel<Element>(true, []);
+   mytesting=new TestClass();
+   
   ngAfterViewInit() {
     
   }
-
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
   constructor(private DatalistService: DatalistService){
   }
+
   ngOnInit() {
     this.get();
+    this.mytesting.testing();
     
   }
   
@@ -34,6 +58,7 @@ export class TableComponent implements OnInit {
       this.tableData=data;
       this.dataSource = new MatTableDataSource<Element>(this.tableData);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
     
   }

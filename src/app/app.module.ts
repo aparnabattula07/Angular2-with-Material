@@ -25,6 +25,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
@@ -79,7 +80,8 @@ import{DatalistService} from './datalist.service'
     MatSlideToggleModule,
     HttpClientModule,
     MatDialogModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
     // NgbModule
   ],
   providers: [DatalistService],
